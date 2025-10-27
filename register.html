@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="description" content="智能监测云平台 - 用户注册" />
+  <meta name="keywords" content="基坑监测,智能监测,云平台,用户注册" />
+  <meta name="author" content="智能监测云科技有限公司" />
+  <title>智能监测云 - 用户注册</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container register-container">
+        <h2 class="title">智能监测云</h2>
+
+        <div class="login-box register-box" role="main" aria-labelledby="register-title">
+            <h3 id="register-title">用户注册</h3>
+            <a href="login.html" class="register-link" aria-label="返回登录">返回登录</a>
+            
+            <!--步骤指示器-->
+            <div class="step-indicator">
+                <div class="step active" data-step="1">1</div>
+                <div class="step" data-step="2">2</div>
+                <div class="step" data-step="3">3</div>
+            </div>
+
+            <form id="registerForm" role="form" aria-label="用户注册表单">
+                <!--第一步：基本信息-->
+                <div class="form-step" data-step="1">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <span class="icon" aria-hidden="true">👤</span>
+                            <input 
+                                type="text"
+                                id="firstName"
+                                placeholder="请输入姓名"
+                                required
+                                aria-describedby="firstName"
+                                aria-label="姓名输入框"
+                                maxlength="10"
+                                />
+                                <p class="warn" id="firstName-warn" role="alert" aria-live="polite">请输入真实姓名</p>
+                        </div>
+
+                        <div class="input-group">
+                            <span class="icon" aria-hidden="true">👤</span>
+                            <input 
+                                type="text"
+                                id="lastName"
+                                name="lastName"
+                                placeholder="请输入姓氏"
+                                required
+                                aria-describedby="lastName-warn"
+                                aria-label="姓氏输入框"
+                                maxlength="10"
+                                />
+                                <p class="warn" id="lastName" role="alert" aria-live="polite">请输入真实姓氏</p>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <span class="icon" aria-hidden="true">📧</span>
+                        <input 
+                        type="text"
+                        id="email"
+                        name="email"
+                        placeholder="请输入邮箱地址"
+                        required
+                        aria-dscribedby="email-warn"
+                        aria-label="邮箱输入框"
+                        maxlength="50"
+                        />
+                        <p class="warn" id="email-warn" role="alert" aria-live="polite">请输入有效的邮箱地址</p>
+                    </div>
+
+                    <div class="input-group">
+                        <span class="icon" aria-hidden="true">📱</span>
+                        <input 
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="请输入手机号码"
+                            required
+                            aria-describedby="phone-warn"
+                            aria-label="手机号输入框"
+                            maxlength="11"
+                            />
+                            <p class="warn" id="phonr-warn" role="alert" aria-live="polite">请输入有效的手机号码</p>
+                    </div>
+                </div>
+
+                <!--第二步：账号信息-->
+                <div class="form-step" data-step="2" style="display: none;">
+                    <div class="input-group">
+                        <span class="icon" aria-hiddden="true">👤</span>
+                        <input 
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="请输入用户名"
+                            required
+                            aria-describedby="username-warn"
+                            aria-label="用户名输入框"
+                            maxlength="20"
+                            />
+                            <p class="warn" id="username" role="alert" aria-live="polite">用户名长度3-20个字符</p>
+                    </div>
+
+                    <div class="input-group">
+                        <span class="icon" aria-hidden="true">🔒</span>
+                        <input 
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="请输入密码"
+                            required
+                            minlength="12"
+                            maxlength="50"
+                            aria-describedby="password-warn password-strength"
+                            aria-label="密码输入框"
+                            />
+                            <button type="button" class="toggle-password" aria-label="显示/隐藏密码">
+                            </button>
+                            <p class="warn" id="password-warn" role="alert" aria-live="polite">密码长度不少于12位</p>
+                            <div class="password-strength">
+                                <span id="strength-text">密码强度</span>
+                                <div classs="strength-bar">
+                                    <div class="strength-fill" id="strength-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <span class="icon" aria-hidden="true">🔒</span>
+                            <input 
+                                type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                placeholder="请确认密码"
+                                required
+                                aria-describedby="confirmPassword-warn"
+                                aria-label="确认密码输入框"
+                                />
+                                <button type="button" class="toggle-password" aria-label="显示/隐藏密码">
+                                </button>
+                                <p class="warn" id="confirmPassword-warn" role="alert" aria-live="polite">两次输入的密码不一致</p>
+                        </div>
+                </div>
+
+                <!--第三步：确认信息-->
+                <div class="form-step" data-step="3" style="display: none;">
+                    <div class="info-summary">
+                        <h4>请确认您的注册信息：</h4>
+                        <div class="summary-item">
+                            <strong>姓名：</strong><span id="summary-name"></span>
+                        </div>
+                        <div class="summary-item">
+                            <strong>邮箱：</strong><span id="summary-email"></span>
+                        </div>
+                        <div class="summary-item">
+                            <strong>手机：</strong><span id="summary-phone"></span>
+                        </div>
+                        <div class="summary-item">
+                            <strong>用户名：</strong><span id="summary-username"></span>
+                        </div>
+                    </div>
+
+                    <div class="terms-checkbox">
+                        <input type="checkbox" id="agreeTerms" required aria-describedby="term-desc"/>
+                        <label for="agreeTerms" id="term-desc">
+                            我已阅读并同意
+                            <a href="#" onclick="showTerms()">《用户服务协议》</a>
+                            和
+                            <a href="#" ondblclick="showTerms()">《隐私协议》</a>
+                        </label>
+                    </div>
+
+                    <div class="terms-checkbox">
+                        <input type="checkbox" id="agreeMarketing"/>
+                        <label for="agreeMarketing">
+                            我愿意接受产品更新和营销信息（可选）
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-navigation">
+                    <button type="button" class="btn-sceondary" id="prevBtn" style="display: none;">上一步</button>
+                    <button type="button" class="btn-primary" id="nextBtn">下一步</button>
+                    <button type="submit" class="btn-login" id="submitBtn" style="display: none;">
+                        <span class="btn-text">完成注册</span>
+                        <span class="btn-loading" style="display: none;">
+                            <span class="spinner"></span>
+                            注册中...
+                        </span>
+                    </button>
+                </div>
+
+                <div id="errorMsg" class="error-msg" role="alert" aria-live="assertive" style="display: none;"></div>
+            </form>
+
+            <div class="login-link">
+                已有帐号？<a href="login.html">立即登录</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>@ 智能监测云 | YRRZ</p>
+        </footer>
+    </div>
+
+    <script src="register.js"></script>
+</body>
+</html>

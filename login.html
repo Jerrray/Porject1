@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="description" content="智能监测云平台 - 专业的基坑监测解决方案" />
+  <meta name="keywords" content="基坑监测,智能监测,云平台,安全监测" />
+  <meta name="author" content="智能监测云科技有限公司" />
+  <title>智能监测云 - 登录</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+
+  <div class="login-container">
+    <h2 class="title">智能监测云</h2>
+
+    <div class="login-box" role="main" aria-labelledby="login-title">
+      <h3 id="login-title">用户登录</h3>
+      <a href="register.html" class="register-link" aria-label="注册新用户">注册新用户</a>
+
+      <form id="loginForm" role="form" aria-label="用户登录表单">
+        <div class="input-group">
+          <span class="icon" aria-hidden="true">👤</span>
+          <input 
+            type="text" 
+            id="username"
+            name="username"
+            placeholder="请输入用户名" 
+            required 
+            aria-describedby="username-warn"
+            aria-label="用户名输入框"
+            autocomplete="username"
+            maxlength="20"
+          />
+          <p class="warn" id="username-warn" role="alert" aria-live="polite">用户名不能为空</p>
+        </div>
+
+        <div class="input-group">
+          <span class="icon" aria-hidden="true">🔒</span>
+          <input 
+            type="password" 
+            id="password"
+            name="password"
+            placeholder="请输入密码" 
+            required 
+            minlength="6" 
+            maxlength="50"
+            aria-describedby="password-warn"
+            aria-label="密码输入框"
+            autocomplete="current-password"
+          />
+          <button type="button" class="toggle-password" aria-label="显示/隐藏密码">
+          </button>
+          <a href="forgot-password.html" class="forget" aria-label="忘记密码">忘记密码</a>
+          <p class="warn" id="password-warn" role="alert" aria-live="polite">密码长度不少于6位</p>
+        </div>
+
+        <div class="security-options">
+          <div class="remember">
+            <label for="rememberMe">
+              <input type="checkbox" id="rememberMe" aria-describedby="remember-desc" />
+              <span id="remember-desc">记住密码</span>
+            </label>
+          </div>
+          
+          <div class="captcha-group" style="display: none;">
+            <label for="captcha">验证码</label>
+            <div class="captcha-input">
+              <input type="text" id="captcha" name="captcha" placeholder="请输入验证码" maxlength="6">
+              <div class="captcha-image" id="captchaImage">
+                <span>1234</span>
+              </div>
+              <button type="button" class="refresh-captcha" aria-label="刷新验证码">🔄</button>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-login" aria-describedby="errorMsg">
+          <span class="btn-text">登录</span>
+          <span class="btn-loading" style="display: none;">
+            <span class="spinner"></span>
+            登录中...
+          </span>
+        </button>
+        
+        <div id="errorMsg" class="error-msg" role="alert" aria-live="assertive" style="display: none;"></div>
+        
+        <!-- 快速登录选项 -->
+        <div class="quick-login">
+          <p class="divider">或使用快速登录</p>
+          <div class="quick-options">
+            <button type="button" class="quick-btn" data-user="admin" data-pass="admin123">
+              <span class="icon">👨‍💼</span>
+              <span>管理员</span>
+            </button>
+            <button type="button" class="quick-btn" data-user="user" data-pass="123456">
+              <span class="icon">👤</span>
+              <span>普通用户</span>
+            </button>
+            <button type="button" class="quick-btn" data-user="guest" data-pass="guest123">
+              <span class="icon">👥</span>
+              <span>访客</span>
+            </button>
+          </div>
+        </div>
+        
+      </form>
+
+    </div>
+
+    <footer>
+      <p>@ 智能监测云 | YRRZ</p>
+    </footer>
+  </div>
+
+  <!-- 选择使用简化版本以解决卡顿问题 -->
+  <script src="login.js"></script>
+  <!-- 如需完整功能，请使用：<script src="login.js"></script> -->
+</body>
+</html>
